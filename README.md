@@ -1,6 +1,6 @@
 # **The Data Engineer Prep Guide**  
 
-Welcome to **The Data Engineer Prep Guide**, a growing repository dedicated to helping data engineers prepare for interviews and hone their skills. Our goal is to make preparation simple, structured, and collaborative.  
+Welcome to **The Data Engineer Prep Guide**, A repository dedicated to helping data engineers prepare for interviews and hone their skills. My goal is to make preparation simple, structured, and collaborative.  
 
 ## **Current Focus: Spark**  
 We’re starting with Spark, one of the most essential tools in a data engineer’s toolkit. The repository currently includes practical examples and commonly asked syntax questions to help you revise effectively.  
