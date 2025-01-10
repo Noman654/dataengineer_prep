@@ -9,7 +9,8 @@ We’re starting with Spark, one of the most essential tools in a data engineer�
 ```
 📂 Spark/  
    └── syntax_practical/  
-       └── common_asked_syntax.ipynb  
+       └── common_asked_syntax.ipynb
+   └── topics_to_focus.md
 📄 README.md  
 ```  
 
