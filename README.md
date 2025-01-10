@@ -1,7 +1,3 @@
-Here’s an updated README tailored to your current repository structure, with room for future expansion:  
-
----
-
 # **The Data Engineer Prep Guide**  
 
 Welcome to **The Data Engineer Prep Guide**, a growing repository dedicated to helping data engineers prepare for interviews and hone their skills. Our goal is to make preparation simple, structured, and collaborative.  
@@ -35,7 +31,7 @@ This repository is a work in progress! Future sections will include:
    git clone https://github.com/yourusername/data-engineer-prep-guide.git  
    ```  
 2. Navigate to the `Spark` folder to start with the provided notebook.  
-3. Open the notebook with Jupyter or any compatible tool to explore the syntax examples.  
+3. Open the notebook with Jupyter or any compatible tool to explore the syntax examples OR you can directly run notebook using google-collab.
 
 ## **Contributing**  
 We welcome contributions to make this guide comprehensive and beginner-friendly. Here’s how you can help:  
@@ -51,6 +47,3 @@ We welcome contributions to make this guide comprehensive and beginner-friendly.
 ## **Let’s Build Together**  
 This repository is for the community, by the community. Whether you’re preparing for interviews or sharing your expertise, let’s collaborate to make data engineering preparation accessible for everyone.  
 
----
-
-Feel free to adapt this as you add more content or organize the repository further!
