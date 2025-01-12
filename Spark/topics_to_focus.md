@@ -23,5 +23,6 @@ To excel in Spark and be interview-ready, it’s important to master key concept
 
 ## **5. Catalyst Optimizer**  
 - **Why It’s Important**: A solid grasp of how Spark optimizes query plans can set you apart.  
-
+Read This: 
+1. [Catalyst Optimiser](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) 
 
