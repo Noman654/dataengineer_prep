@@ -2,6 +2,20 @@
 
 Welcome to **The Data Engineer Prep Guide**, A repository dedicated to helping data engineers prepare for interviews and hone their skills. My goal is to make preparation simple, structured, and collaborative.  
 
+## Must-Check Resources for Data Engineers 🚀  
+
+### 📘 **Top Repositories**
+- [**Data Engineer Handbook** by Zach Wilson](https://github.com/DataExpert-io/data-engineer-handbook)  
+  A comprehensive guide for aspiring and experienced data engineers.  
+
+### 🌟 **Influential Thought Leaders to Follow**
+1. [**Sumit Mittal**](https://www.linkedin.com/in/bigdatabysumit/) – Founder of BigDataBySumit.  
+2. [**Joe Reis**](https://www.linkedin.com/in/josephreis/) – Co-author of *Fundamentals of Data Engineering*.  
+3. [**Zach Wilson**](https://www.linkedin.com/in/eczachly/) – Data Engineering Specialist.  
+4. [**Shashank Mishra**](https://www.linkedin.com/in/shashank219/) – Data Engineer and Educator.  
+5. [**Gowtham SB**](https://www.linkedin.com/in/sbgowtham/) – Big Data and Cloud Expert.  
+
+
 ## **Current Focus: Spark**  
 We’re starting with Spark, one of the most essential tools in a data engineer’s toolkit. The repository currently includes practical examples and commonly asked syntax questions to help you revise effectively.  
 
