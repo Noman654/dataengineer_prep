@@ -6,7 +6,12 @@ Welcome to **The Data Engineer Prep Guide**, A repository dedicated to helping d
 
 ### 📘 **Top Repositories**
 - [**Data Engineer Handbook** by Zach Wilson](https://github.com/DataExpert-io/data-engineer-handbook)  
-  A comprehensive guide for aspiring and experienced data engineers.  
+  A comprehensive guide for aspiring and experienced data engineers. 
+
+### **💼 Top Resume Example for Data Engineering**
+- [Manish's Data Engineering Resume](https://github.com/manisnitt/myresume/blob/main/manish_resume_github.pdf)
+A well-structured resume showcasing key skills, projects, and experience in data engineering.
+- [My Resume](https://docs.google.com/document/d/10e79n92zj-s92Ss55H8A7fM80UhWeeD5euWAX6AUrbA/edit?usp=sharing) 
 
 ### 🌟 **Influential Thought Leaders to Follow**
 1. [**Sumit Mittal**](https://www.linkedin.com/in/bigdatabysumit/) – Founder of BigDataBySumit.  
@@ -43,7 +48,7 @@ This repository is a work in progress! Future sections will include:
 ## **Getting Started**  
 1. Clone this repository:  
    ```bash  
-   git clone https://github.com/yourusername/data-engineer-prep-guide.git  
+   git clone https://github.com/Noman654/data-engineer-prep.git  
    ```  
 2. Navigate to the `Spark` folder to start with the provided notebook.  
 3. Open the notebook with Jupyter or any compatible tool to explore the syntax examples OR you can directly run notebook using google-collab.
