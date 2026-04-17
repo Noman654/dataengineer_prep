@@ -205,5 +205,5 @@ Every hands-on notebook ends with a **Boss Level** — a harder, more ambiguous 
 ## 📝 Notes
 
 - **Links checked:** 2026-04. If a link rots, grep this file and fix it — don't let it linger.
-- **Colab badges** at the top of each notebook open the notebook directly in Google Colab with zero setup. Currently pointing to the `test` branch; update to `main` when this gets merged.
+- **Colab badges** at the top of each notebook open the notebook directly in Google Colab with zero setup.
 - **Phase 2** adds: null handling, nested data, structured streaming, Delta Lake notebooks. **Phase 3** adds SQL and Python modules + interview prep folder.
