@@ -144,10 +144,14 @@ These topics are where senior DE interviews actually live. External docs are sca
   - [Mastering Spark Internals: Shuffle](https://books.japila.pl/apache-spark-internals/shuffle/) by Jacek Laskowski (free gitbook, dense)
 - 📝 **Quick-review:** [`theory/shuffle_and_partitioning.md`](theory/shuffle_and_partitioning.md) — the 10-min revision doc for the night before an interview.
 
-### 10. Memory Management ⚡
+### 10. Memory Management ⚡ 📝
 - 📖 **Read first:**
   - [**The Ultimate Guide to Spark Memory Management**](https://www.linkedin.com/pulse/ultimate-guide-spark-memory-management-data-engineers-mohd-nauman-4mjec/) — by Mohd Nauman *(author of this repo)*
+  - [**Deep Dive into Spark Memory Management** by Luminousmen](https://luminousmen.com/post/dive-into-spark-memory/) — the most-shared memory post on LinkedIn; clear diagrams of the unified memory model
+  - [**Why Your Spark Applications Are Slow or Failing, Part 1: Memory Management** by Rishitesh Mishra](https://dzone.com/articles/common-reasons-your-spark-applications-are-slow-or) — classic troubleshooting framework
+  - [**Part 3: Cost-Efficient Executor Configuration** by Brad Caffey (Expedia)](https://medium.com/expedia-group-tech/part-3-efficient-executor-configuration-for-apache-spark-b4602929262) — best writeup on the 5-cores rule and executor sizing math
   - [Spark Memory Management — official docs](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- 📝 **Quick-review:** [`theory/memory_management.md`](theory/memory_management.md) — unified memory model, PySpark-specific OOM patterns, executor sizing, the 10-min revision doc.
 
 ### 11. Catalyst Optimizer & Adaptive Query Execution (AQE) ⚡
 - 📖 **Read first:**
