@@ -1,69 +1,81 @@
-# **The Data Engineer Prep Guide**  
+# Data Engineer Prep
 
-Welcome to **The Data Engineer Prep Guide**, A repository dedicated to helping data engineers prepare for interviews and hone their skills. My goal is to make preparation simple, structured, and collaborative.  
+Prep for your next data engineering interview. Work through PySpark notebooks framed as real problems from **Zephyr Coffee Co.** (a fictional 200-store chain with messy data), review the theory docs before senior rounds, drill the quizzes the night before.
 
-## Must-Check Resources for Data Engineers 🚀  
+Built in the open. Contributions welcome — see below.
 
-### 📘 **Top Repositories**
-- [**Data Engineer Handbook** by Zach Wilson](https://github.com/DataExpert-io/data-engineer-handbook)  
-  A comprehensive guide for aspiring and experienced data engineers. 
+---
 
-### **💼 Top Resume Example for Data Engineering**
-- [Manish's Data Engineering Resume](https://github.com/manisnitt/myresume/blob/main/manish_resume_github.pdf)
-A well-structured resume showcasing key skills, projects, and experience in data engineering.
-- [My Resume](https://docs.google.com/document/d/10e79n92zj-s92Ss55H8A7fM80UhWeeD5euWAX6AUrbA/edit?usp=sharing) 
+## 📚 Navigate
 
-### 🌟 **Influential Thought Leaders to Follow**
-1. [**Sumit Mittal**](https://www.linkedin.com/in/bigdatabysumit/) – Founder of BigDataBySumit.  
-2. [**Joe Reis**](https://www.linkedin.com/in/josephreis/) – Co-author of *Fundamentals of Data Engineering*.  
-3. [**Zach Wilson**](https://www.linkedin.com/in/eczachly/) – Data Engineering Specialist.  
-4. [**Shashank Mishra**](https://www.linkedin.com/in/shashank219/) – Data Engineer and Educator.  
-5. [**Gowtham SB**](https://www.linkedin.com/in/sbgowtham/) – Big Data and Cloud Expert.  
+- **[pyspark/](pyspark/)** — the PySpark module (start here)
+- **[ZEPHYR.md](ZEPHYR.md)** — the fictional company whose data runs through every notebook
+- **[Roadmap](#roadmap)** — what's coming next
+- **[Resources](#resources-for-data-engineers)** — thought leaders + resume examples
+- **[Contributing](#contributing)**
 
+---
 
-## **Current Focus: Spark**  
-We’re starting with Spark, one of the most essential tools in a data engineer’s toolkit. The repository currently includes practical examples and commonly asked syntax questions to help you revise effectively.  
+## What's in here now
 
-### **Repository Structure**  
-```
-📂 Spark/  
-   └── syntax_practical/  
-       └── common_asked_syntax.ipynb
-   └── topics_to_focus.md
-📄 README.md  
-```  
+### [pyspark/](pyspark/)
 
-### **Contents**  
-- **Spark Syntax Practical:**  
-  - A notebook (`common_asked_syntax.ipynb`) covering frequently used Spark commands and operations.  
-  - Designed for quick revision and hands-on practice.  
+The PySpark module. READMEs inside guide you through it based on your level (beginner / intermediate / senior).
 
-## **Planned Expansion**  
-This repository is a work in progress! Future sections will include:  
-- **Kafka**: Real-time data streaming concepts and hands-on examples.  
-- **DBT**: Data transformations in modern pipelines.  
-- **SQL**: Practice queries and optimization tips.  
-- **Data Lake**: Best practices for data storage and retrieval.  
+**Hands-on notebooks** (each framed as a Slack message from a Zephyr colleague asking you to solve a realistic problem):
+- [Syntax cheatsheet](pyspark/syntax_cheatsheet.ipynb) — 30-min flat reference
+- [Window functions](pyspark/window_functions.ipynb) — consecutive months, churn detection, top-N per group
+- [Joins](pyspark/joins.ipynb) — type mismatches, broadcast, skew detection, salting
 
-## **Getting Started**  
-1. Clone this repository:  
-   ```bash  
-   git clone https://github.com/Noman654/data-engineer-prep.git  
-   ```  
-2. Navigate to the `Spark` folder to start with the provided notebook.  
-3. Open the notebook with Jupyter or any compatible tool to explore the syntax examples OR you can directly run notebook using google-collab.
+**Theory docs** (10-min night-before-interview reviews):
+- [Shuffle & partitioning](pyspark/theory/shuffle_and_partitioning.md)
+- [Memory management](pyspark/theory/memory_management.md)
+- [Catalyst & AQE](pyspark/theory/catalyst_and_aqe.md)
+- [Data skew playbook](pyspark/theory/data_skew.md)
+- [Spark UI & `.explain()` debugging](pyspark/theory/spark_ui_debugging.md)
 
-## **Contributing**  
-We welcome contributions to make this guide comprehensive and beginner-friendly. Here’s how you can help:  
-1. Fork the repository.  
-2. Create a branch for your updates.  
-3. Submit a pull request with your contributions.  
+**Self-check quizzes** (collapsible Q&A, 🟢 basics → ⚡ senior judgment):
+- [Window functions](pyspark/quiz/window_functions.md) · [Joins](pyspark/quiz/joins.md) · [Memory](pyspark/quiz/memory_management.md) · [Catalyst/AQE](pyspark/quiz/catalyst_and_aqe.md) · [Skew](pyspark/quiz/data_skew.md) · [Spark UI](pyspark/quiz/spark_ui_debugging.md)
 
-### **What You Can Contribute**  
-- Add syntax examples or commonly asked questions for Spark.  
-- Improve the existing content for clarity or accuracy.  
-- Share practical examples for upcoming topics (Kafka, DBT, SQL, etc.).  
+---
 
-## **Let’s Build Together**  
-This repository is for the community, by the community. Whether you’re preparing for interviews or sharing your expertise, let’s collaborate to make data engineering preparation accessible for everyone.  
+## Roadmap
+
+Phase 2 (next, no dates):
+- Null handling & deduplication notebook (Zephyr's 2023 POS duplicate incident)
+- Nested data notebook (exploding loyalty event structs)
+- Structured streaming notebook
+- Delta Lake notebook
+- Quiz + theory coverage for each
+
+Phase 3:
+- SQL module (window functions in SQL, gaps-and-islands, SCDs, query optimization)
+- Python for DE module (collections, generators, pandas↔Spark, testing)
+- System design scenarios for DE interviews
+- DE interview question bank
+
+The repo aims to be honest about what's built and what's not. No fake timelines.
+
+---
+
+## Resources for Data Engineers
+
+### Thought leaders worth following
+1. [Sumit Mittal](https://www.linkedin.com/in/bigdatabysumit/) — Founder of BigDataBySumit
+2. [Joe Reis](https://www.linkedin.com/in/josephreis/) — Co-author of *Fundamentals of Data Engineering*
+3. [Zach Wilson](https://www.linkedin.com/in/eczachly/) — Data engineering specialist (also runs the [Data Engineer Handbook](https://github.com/DataExpert-io/data-engineer-handbook))
+4. [Shashank Mishra](https://www.linkedin.com/in/shashank219/) — Data engineer & educator
+5. [Gowtham SB](https://www.linkedin.com/in/sbgowtham/) — Big data & cloud
+
+### Resume examples
+- [Manish's DE resume](https://github.com/manisnitt/myresume/blob/main/manish_resume_github.pdf) — well-structured, shows skills/projects/experience clearly
+- [My resume](https://docs.google.com/document/d/10e79n92zj-s92Ss55H8A7fM80UhWeeD5euWAX6AUrbA/edit?usp=sharing)
+
+---
+
+## Contributing
+
+Typo fixes, clearer explanations, new quiz questions, Zephyr scenario ideas, and blog-link additions (with a one-line justification for why it beats what's already linked) are all welcome. Open an issue or a PR.
+
+**Please don't send:** random link dumps, self-promotional content, or AI-generated filler. The curation is the point — every external link in this repo was added because it's genuinely the best free resource for that topic, not because it exists.
 

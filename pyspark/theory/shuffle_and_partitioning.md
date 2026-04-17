@@ -229,7 +229,7 @@ Subsequent joins on `user_id` avoid the shuffle entirely — the buckets line up
 - [Mastering Spark Internals: Shuffle](https://books.japila.pl/apache-spark-internals/shuffle/) — Jacek Laskowski, free gitbook
 - [Databricks: Adaptive Query Execution](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html) — canonical AQE post
 - [Databricks glossary: Data skew](https://www.databricks.com/glossary/data-skew)
-- The salting pattern is practiced hands-on in [`../03_joins.ipynb`](../03_joins.ipynb) Boss Level.
+- The salting pattern is practiced hands-on in [`../joins.ipynb`](../joins.ipynb) Boss Level.
 
 ---
 

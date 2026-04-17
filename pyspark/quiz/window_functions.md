@@ -2,7 +2,7 @@
 
 **How to use this:** Read the question. Think about your answer (say it out loud like you're in an interview). Then click to expand the answer.
 
-**Paired with:** [`../02_window_functions.ipynb`](../02_window_functions.ipynb)
+**Paired with:** [`../window_functions.ipynb`](../window_functions.ipynb)
 
 **Difficulty mix:** 🟢 basics → 🟡 intermediate → ⚡ senior
 
@@ -163,6 +163,6 @@ See also: [`../theory/shuffle_and_partitioning.md`](../theory/shuffle_and_partit
 
 - **9–10 correct** → you're interview-ready on windows. Drill the theory docs next.
 - **6–8 correct** → solid grasp. Re-walk the notebook sections where you missed.
-- **< 6 correct** → go back to [`../02_window_functions.ipynb`](../02_window_functions.ipynb) and do the Boss Level from scratch before returning here.
+- **< 6 correct** → go back to [`../window_functions.ipynb`](../window_functions.ipynb) and do the Boss Level from scratch before returning here.
 
 **Next quiz:** joins (coming soon).

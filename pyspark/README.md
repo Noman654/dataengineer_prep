@@ -1,4 +1,4 @@
-# 03 — PySpark
+# PySpark
 
 The heart of this repo. PySpark is what most DE interviews probe hardest, and Zephyr Coffee Co.'s messy data is where you actually get to practice against realistic problems instead of toy datasets.
 
@@ -8,11 +8,12 @@ The heart of this repo. PySpark is what most DE interviews probe hardest, and Ze
 
 ## 🧭 How this module works
 
-Every topic below has some mix of four things:
+Every topic below has some mix of five things:
 
 - 📖 **Read first** — the single best free external resource. We don't duplicate what already exists well.
 - 📓 **Hands-on notebook** — our own, framed around a Zephyr scenario. These exist only where external content is weak or where Zephyr gives you something realistic to practice against.
 - 📝 **Theory doc** — a dense quick-review summary in [`theory/`](theory/). Written for senior interview prep — no fluff, no roleplay.
+- 🧠 **Quiz** — self-check questions in [`quiz/`](quiz/) with collapsible answers. Drill the night before an interview.
 - 🏋️ **Practice** — where to drill problems.
 
 **If a topic has no notebook, it's not missing — it's that external content already covers it well.** Follow the read-first link, then practice.
@@ -24,7 +25,7 @@ Every topic below has some mix of four things:
 ### 🟢 Beginner (0–1 yr, never touched Spark)
 Estimated: 3–4 weeks.
 
-1. Open [`00_syntax_cheatsheet.ipynb`](00_syntax_cheatsheet.ipynb) — 30 min flat reference, no story
+1. Open [`syntax_cheatsheet.ipynb`](syntax_cheatsheet.ipynb) — 30 min flat reference, no story
 2. Walk through topics 1 → 7 in order
 3. Skip ⚡ sections for now — come back when you have 1 year of hands-on experience
 
@@ -32,16 +33,17 @@ Estimated: 3–4 weeks.
 Estimated: 1–2 weeks.
 
 1. Skim the syntax cheatsheet to fill gaps
-2. Jump straight to the 🟡 notebooks: [window functions](02_window_functions.ipynb), [joins](03_joins.ipynb), null handling, nested data
+2. Jump straight to the 🟡 notebooks: [window functions](window_functions.ipynb), [joins](joins.ipynb), null handling, nested data
 3. Do every Boss Level — those push you where the walkthrough stops
 
 ### ⚡ Senior interview prep (4+ yrs, building pipelines in production)
 Estimated: ~1 week focused review.
 
-1. Start in [`theory/`](theory/) — shuffle, AQE, memory, skew
+1. Start in [`theory/`](theory/) — shuffle, memory, Catalyst/AQE, skew, Spark UI debugging
 2. Read the ⚡ articles in "Advanced Topics" below
 3. Speedrun the Boss Levels in every notebook
-4. Go to `../interview_prep/system_design_scenarios.md` (coming in Phase 3)
+4. Drill the [`quiz/`](quiz/) folder the night before — say every answer out loud
+5. Go to `../interview_prep/system_design_scenarios.md` (coming in Phase 3)
 
 ---
 
@@ -50,7 +52,7 @@ Estimated: ~1 week focused review.
 ### 0. Syntax Reference 🟢 📓
 A flat, hands-on reference of the stuff you actually type every day: DataFrame creation, schemas, UDFs (standard / pandas / SQL-based), `cache` vs `persist`, and more. **Start here if you've never touched PySpark** — no narrative, just syntax.
 
-- 📓 [`00_syntax_cheatsheet.ipynb`](00_syntax_cheatsheet.ipynb)
+- 📓 [`syntax_cheatsheet.ipynb`](syntax_cheatsheet.ipynb)
 - 📖 Companion reading: [Spark Quick Start](https://spark.apache.org/docs/latest/quick-start.html) (15 min, official)
 
 ---
@@ -72,8 +74,9 @@ No custom notebook — external content is already excellent. Don't waste time.
 - 📖 **Read first:**
   - [Databricks: Introducing Window Functions in Spark SQL](https://www.databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html)
   - [Spark SQL window syntax reference](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-window.html)
-- 📓 **Hands-on:** [`02_window_functions.ipynb`](02_window_functions.ipynb)
+- 📓 **Hands-on:** [`window_functions.ipynb`](window_functions.ipynb)
   Jen from marketing needs to find loyal regulars (3+ consecutive months), detect churn (3 months of declining spend), and rank top customers per month. Teaches `lag` / `row_number` / `rank` / `dense_rank` through real problems.
+- 🧠 **Quiz:** [`quiz/window_functions.md`](quiz/window_functions.md) — 10 self-check questions (🟢→⚡).
 - 🏋️ **Practice:**
   - [LeetCode SQL Study Plan](https://leetcode.com/studyplan/top-sql-50/) — problems 185, 262, 601 (same patterns in SQL)
   - [StrataScratch](https://www.stratascratch.com/) — filter by "Window Functions"
@@ -87,8 +90,9 @@ No custom notebook — external content is already excellent. Don't waste time.
 - 📖 **Read first:**
   - [Spark SQL join types reference](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-join.html)
   - [Spark Performance Tuning: Join hints](https://spark.apache.org/docs/latest/sql-performance-tuning.html#join-strategy-hints-for-sql-queries)
-- 📓 **Hands-on:** [`03_joins.ipynb`](03_joins.ipynb)
+- 📓 **Hands-on:** [`joins.ipynb`](joins.ipynb)
   Dev from Store Ops needs you to fix the loyalty ↔ POS reconciliation. Teaches: type mismatches across systems, left-anti-join for finding orphans, broadcast hint for small lookups, skew detection, salting the hot key.
+- 🧠 **Quiz:** [`quiz/joins.md`](quiz/joins.md) — 10 questions covering join types, broadcast, skew, salting (🟢→⚡).
 - 📝 **Deep dive:** [`theory/shuffle_and_partitioning.md`](theory/shuffle_and_partitioning.md)
 
 ---
@@ -152,17 +156,34 @@ These topics are where senior DE interviews actually live. External docs are sca
   - [**Part 3: Cost-Efficient Executor Configuration** by Brad Caffey (Expedia)](https://medium.com/expedia-group-tech/part-3-efficient-executor-configuration-for-apache-spark-b4602929262) — best writeup on the 5-cores rule and executor sizing math
   - [Spark Memory Management — official docs](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - 📝 **Quick-review:** [`theory/memory_management.md`](theory/memory_management.md) — unified memory model, PySpark-specific OOM patterns, executor sizing, the 10-min revision doc.
+- 🧠 **Quiz:** [`quiz/memory_management.md`](quiz/memory_management.md) — 10 questions on memory regions, overhead, GC, executor sizing (🟢→⚡).
 
-### 11. Catalyst Optimizer & Adaptive Query Execution (AQE) ⚡
+### 11. Catalyst Optimizer & Adaptive Query Execution (AQE) ⚡ 📝
 - 📖 **Read first:**
-  - [Catalyst Optimiser: The Power of Spark SQL](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f)
+  - [**Deep Dive into Spark SQL's Catalyst Optimizer** — Databricks (2015)](https://www.databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html) — the canonical post by Armbrust & Huai
   - [Databricks: Adaptive Query Execution](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html) — the canonical AQE post
-  - [Databricks Engineering blog — AQE deep dive](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html)
+  - [Catalyst Optimiser: The Power of Spark SQL](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) — concise walkthrough
+- 📝 **Quick-review:** [`theory/catalyst_and_aqe.md`](theory/catalyst_and_aqe.md) — the 4-stage compilation pipeline, key Catalyst rules, reading physical plans, AQE's three features.
+- 🧠 **Quiz:** [`quiz/catalyst_and_aqe.md`](quiz/catalyst_and_aqe.md) — 10 questions including reading a physical plan (🟢→⚡).
 
-### 12. Handling Data Skew ⚡
+### 12. Handling Data Skew ⚡ 📝
 - 📖 **Read first:**
   - [Databricks: What is data skew and how to handle it](https://www.databricks.com/glossary/data-skew)
-  - The salting pattern (covered in `03_joins.ipynb` Boss Level)
+  - [**Why Your Spark Apps Are Slow, Part 2: Data Skew and GC** — Rishitesh Mishra](https://dzone.com/articles/why-your-spark-apps-are-slow-or-failing-part-ii-da) — classic troubleshooting framework
+  - [**Spark Skew** — Daniel Tomes (YouTube)](https://www.youtube.com/watch?v=6zg7NTw-kTQ) — the canonical talk; watch once
+- 📝 **Quick-review:** [`theory/data_skew.md`](theory/data_skew.md) — detection + the fix hierarchy (AQE → broadcast → salting → two-phase aggregation).
+- 🧠 **Quiz:** [`quiz/data_skew.md`](quiz/data_skew.md) — 10 questions including skew drift diagnosis (🟢→⚡).
+- 🏋️ **Hands-on:** salting walkthrough in [`joins.ipynb`](joins.ipynb) Boss Level.
+
+### 12.5. Spark UI & `.explain()` Debugging ⚡ 📝 *(new)*
+**Why it matters:** *"Your job is slow — what do you look at first?"* is a guaranteed senior interview question. Reading the UI and physical plans separates people who write Spark from people who debug Spark.
+
+- 📖 **Read first:**
+  - [Monitoring and Instrumentation — official Spark docs](https://spark.apache.org/docs/latest/monitoring.html)
+  - [**A Deep Dive into Spark UI for Job Optimization** — Microsoft](https://techcommunity.microsoft.com/blog/microsoftmissioncriticalblog/a-deep-dive-into-spark-ui-for-job-optimization/4442229) — walkthrough with screenshots
+  - [**Understanding your Spark Application Through Visualization** — Databricks (2015)](https://www.databricks.com/blog/2015/06/22/understanding-your-apache-spark-application-through-visualization.html)
+- 📝 **Quick-review:** [`theory/spark_ui_debugging.md`](theory/spark_ui_debugging.md) — UI tab tour, physical plan operators, the full "my job is slow" diagnostic sequence.
+- 🧠 **Quiz:** [`quiz/spark_ui_debugging.md`](quiz/spark_ui_debugging.md) — 10 questions including reading a real plan (🟢→⚡).
 
 ### 13. Structured Streaming ⚡ *(Phase 2)*
 - 📖 **Read first:**
