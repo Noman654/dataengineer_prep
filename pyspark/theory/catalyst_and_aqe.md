@@ -207,7 +207,7 @@ spark.conf.set("spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes", "2
 **Community classics (shared widely on LinkedIn):**
 - [**Deep Dive into Spark SQL's Catalyst Optimizer** — Databricks (2015)](https://www.databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html) — the original and canonical post by Michael Armbrust & Yin Huai. Still the best explanation.
 - [**Adaptive Query Execution: Speeding Up Spark SQL at Runtime** — Databricks (2020)](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html) — the AQE launch post, with benchmark numbers.
-- [**Catalyst Optimiser: The Power of Spark SQL** by Shikha Gupta (Medium)](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) — concise walkthrough with examples.
+- [**Catalyst Optimizer: The Power of Spark SQL** by Shikha Bhatia (Medium)](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) — concise walkthrough with examples.
 - [**Mastering Spark SQL** by Jacek Laskowski (gitbook)](https://jaceklaskowski.gitbooks.io/mastering-spark-sql/) — for when you want to go deeper into specific rules.
 
 **Author's own:**

@@ -162,7 +162,7 @@ These topics are where senior DE interviews actually live. External docs are sca
 - 📖 **Read first:**
   - [**Deep Dive into Spark SQL's Catalyst Optimizer** — Databricks (2015)](https://www.databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html) — the canonical post by Armbrust & Huai
   - [Databricks: Adaptive Query Execution](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html) — the canonical AQE post
-  - [Catalyst Optimiser: The Power of Spark SQL](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) — concise walkthrough
+  - [Catalyst Optimizer: The Power of Spark SQL by Shikha Bhatia](https://medium.com/@Shkha_24/catalyst-optimizer-the-power-of-spark-sql-cad8af46097f) — concise walkthrough
 - 📝 **Quick-review:** [`theory/catalyst_and_aqe.md`](theory/catalyst_and_aqe.md) — the 4-stage compilation pipeline, key Catalyst rules, reading physical plans, AQE's three features.
 - 🧠 **Quiz:** [`quiz/catalyst_and_aqe.md`](quiz/catalyst_and_aqe.md) — 10 questions including reading a physical plan (🟢→⚡).
 

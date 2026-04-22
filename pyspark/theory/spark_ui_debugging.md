@@ -207,9 +207,7 @@ Do this three times with three different joins (inner, broadcast, salted) and yo
 
 **Community:**
 - [**A Deep Dive into Spark UI for Job Optimization** — Microsoft Tech Community](https://techcommunity.microsoft.com/blog/microsoftmissioncriticalblog/a-deep-dive-into-spark-ui-for-job-optimization/4442229) — excellent walkthrough with screenshots.
-- [**Mastering the Spark UI** — Databricks (recorded talk)](https://www.databricks.com/session/spark-sql-debugging-performance-troubleshooting) — the definitive "watch this once" talk.
 - [**Understanding your Apache Spark Application Through Visualization** — Databricks (2015)](https://www.databricks.com/blog/2015/06/22/understanding-your-apache-spark-application-through-visualization.html) — the original post that introduced the DAG viz.
-- [**Spark UI Tab-by-Tab Guide** by Jules Damji](https://medium.com/@juliuskrah/spark-ui-tab-by-tab-guide-66cd5e2f5f77) — hands-on tour.
 
 Related in this repo: [`shuffle_and_partitioning.md`](shuffle_and_partitioning.md), [`memory_management.md`](memory_management.md), [`data_skew.md`](data_skew.md), [`catalyst_and_aqe.md`](catalyst_and_aqe.md).
 

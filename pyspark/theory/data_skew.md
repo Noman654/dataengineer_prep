@@ -249,7 +249,7 @@ Joins that were fine last quarter may become skewed as data grows. A key that wa
 - [**Databricks glossary: Data skew**](https://www.databricks.com/glossary/data-skew) — concise intro.
 - [**Why Your Spark Apps Are Slow or Failing, Part 2: Data Skew and GC** — Rishitesh Mishra](https://dzone.com/articles/why-your-spark-apps-are-slow-or-failing-part-ii-da) — the troubleshooting framework everyone cites.
 - [**Adaptive Query Execution: Speeding Up Spark SQL at Runtime** — Databricks](https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html) — AQE launch with skew benchmarks.
-- [**Apache Spark Salting Technique** by Syeed Hasan](https://medium.com/@syeedhasan/salting-in-spark-b7c2236f4ae6) — code walkthrough of asymmetric salting.
+- [**PySpark — The Famous Salting Technique** by Subham Khandelwal](https://subhamkharwal.medium.com/pyspark-the-famous-salting-technique-da8f34c28211) — practical code walkthrough of the salting pattern.
 - [**Spark Skew: How to Handle Data Skew in Spark** — Daniel Tomes (Databricks)](https://www.youtube.com/watch?v=6zg7NTw-kTQ) — the canonical talk. Watch it once.
 
 **Hands-on in this repo:** [`../joins.ipynb`](../joins.ipynb) Boss Level — manual salting walk-through on Zephyr's skewed store 42.

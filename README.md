@@ -9,6 +9,7 @@ Built in the open. Contributions welcome — see below.
 ## 📚 Navigate
 
 - **[pyspark/](pyspark/)** — the PySpark module (start here)
+- **[company_interviews/](company_interviews/)** — company-wise DE interview patterns (Ola, Flipkart, Swiggy, PhonePe, Jio)
 - **[ZEPHYR.md](ZEPHYR.md)** — the fictional company whose data runs through every notebook
 - **[Roadmap](#roadmap)** — what's coming next
 - **[Resources](#resources-for-data-engineers)** — thought leaders + resume examples

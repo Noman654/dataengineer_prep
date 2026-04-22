@@ -188,6 +188,6 @@ The join strategy is right — time to look elsewhere:
 
 - **9–10 correct** → you can debug real Spark jobs. This is senior-level territory.
 - **6–8 correct** → solid grasp. Practice on your own jobs — open the UI for every run.
-- **< 6 correct** → re-read [spark_ui_debugging.md](../theory/spark_ui_debugging.md), then watch [Databricks' Mastering the Spark UI talk](https://www.databricks.com/session/spark-sql-debugging-performance-troubleshooting).
+- **< 6 correct** → re-read [spark_ui_debugging.md](../theory/spark_ui_debugging.md), then walk through the [official Spark Web UI docs](https://spark.apache.org/docs/latest/web-ui.html) tab by tab.
 
 **Related:** [quiz/catalyst_and_aqe.md](catalyst_and_aqe.md), [quiz/data_skew.md](data_skew.md), [quiz/memory_management.md](memory_management.md)

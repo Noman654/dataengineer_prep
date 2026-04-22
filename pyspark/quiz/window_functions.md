@@ -165,4 +165,4 @@ See also: [`../theory/shuffle_and_partitioning.md`](../theory/shuffle_and_partit
 - **6–8 correct** → solid grasp. Re-walk the notebook sections where you missed.
 - **< 6 correct** → go back to [`../window_functions.ipynb`](../window_functions.ipynb) and do the Boss Level from scratch before returning here.
 
-**Next quiz:** joins (coming soon).
+**Related:** [quiz/joins.md](joins.md), [quiz/memory_management.md](memory_management.md)
