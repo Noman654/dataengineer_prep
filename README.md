@@ -1,5 +1,9 @@
 # Data Engineer Prep
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/Noman654/dataengineer_prep)](https://github.com/Noman654/dataengineer_prep)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 Prep for your next data engineering interview. Work through PySpark notebooks framed as real problems from **Zephyr Coffee Co.** (a fictional 200-store chain with messy data), review the theory docs before senior rounds, drill the quizzes the night before.
 
 Built in the open. Contributions welcome — see below.
@@ -9,6 +13,7 @@ Built in the open. Contributions welcome — see below.
 ## 📚 Navigate
 
 - **[pyspark/](pyspark/)** — the PySpark module (start here)
+- **[data_modeling/](data_modeling/)** — dimensional modeling, SCDs, star vs snowflake, grain
 - **[company_interviews/](company_interviews/)** — company-wise DE interview patterns (Ola, Flipkart, Swiggy, PhonePe, Jio)
 - **[ZEPHYR.md](ZEPHYR.md)** — the fictional company whose data runs through every notebook
 - **[Roadmap](#roadmap)** — what's coming next
