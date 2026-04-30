@@ -37,6 +37,7 @@ When in doubt, describe the *type* of question, not the question itself.
 | [Swiggy](swiggy/) | 4–5 rounds | SQL, Spark, Pipeline Design | [online.md](swiggy/online.md) |
 | [PhonePe](phonepe/) | 3–4 rounds | SQL (heavy), Spark internals | [online.md](phonepe/online.md) |
 | [Jio](jio/) | 4 rounds | DSA, Big Data, Projects | [online.md](jio/online.md) |
+| [Mondee](mondee/) | 2 rounds | Project deep-dive (LLM infra), System design | [my_interview.md](mondee/my_interview.md) |
 
 > **Personal experiences** will be added once filled using the [`_template_personal.md`](_template_personal.md) format. Contributions welcome.
 
