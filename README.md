@@ -69,10 +69,15 @@ The repo aims to be honest about what's built and what's not. No fake timelines.
 ### Thought leaders worth following
 1. [Sumit Mittal](https://www.linkedin.com/in/bigdatabysumit/) — Founder of BigDataBySumit
 2. [Joe Reis](https://www.linkedin.com/in/josephreis/) — Co-author of *Fundamentals of Data Engineering*
-3. [Zach Wilson](https://www.linkedin.com/in/eczachly/) — Data engineering specialist (also runs the [Data Engineer Handbook](https://github.com/DataExpert-io/data-engineer-handbook))
+3. [Zach Wilson](https://www.linkedin.com/in/eczachly/) — Data engineering specialist 
 4. [Shashank Mishra](https://www.linkedin.com/in/shashank219/) — Data engineer & educator
 5. [Gowtham SB](https://www.linkedin.com/in/sbgowtham/) — Big data & cloud
+6. [Manish Kumar](https://www.linkedin.com/in/manish-kumar-data-engineer/) 
 
+## Resource That I love 
+1. [Data Pathshala](https://datapathsala.com/) Preparation of Data Engineering by Manish Kumar
+2. [Data Engineer Handbook](https://github.com/DataExpert-io/data-engineer-handbook) 
+   
 ### Resume examples
 - [Manish's DE resume](https://github.com/manisnitt/myresume/blob/main/manish_resume_github.pdf) — well-structured, shows skills/projects/experience clearly
 - [My resume](https://docs.google.com/document/d/10e79n92zj-s92Ss55H8A7fM80UhWeeD5euWAX6AUrbA/edit?usp=sharing)
