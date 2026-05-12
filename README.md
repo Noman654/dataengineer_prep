@@ -72,7 +72,7 @@ The repo aims to be honest about what's built and what's not. No fake timelines.
 3. [Zach Wilson](https://www.linkedin.com/in/eczachly/) — Data engineering specialist 
 4. [Shashank Mishra](https://www.linkedin.com/in/shashank219/) — Data engineer & educator
 5. [Gowtham SB](https://www.linkedin.com/in/sbgowtham/) — Big data & cloud
-6. [Manish Kumar](https://www.linkedin.com/in/manish-kumar-data-engineer/)
+6. [Manish Kumar](https://www.linkedin.com/in/manish-kumar-data-engineer/) - For questions and interview experience
 7. [Darshil Parmar](https://www.youtube.com/@DarshilParmar) - For Crisp DE Videos
 8. [Ansh Lamba](https://www.youtube.com/@AnshLambaJSR) - Best for Azure and Databricks
 
