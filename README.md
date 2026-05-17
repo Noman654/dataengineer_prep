@@ -14,6 +14,7 @@ Built in the open. Contributions welcome — see below.
 
 - **[pyspark/](pyspark/)** — the PySpark module (start here)
 - **[data_modeling/](data_modeling/)** — dimensional modeling, SCDs, star vs snowflake, grain
+- **[ai_for_data_engineering/](ai_for_data_engineering/)** — ⭐ the DE work behind LLMs: RAG/agents (using LLMs) + pre-training & SFT data (building LLMs)
 - **[company_interviews/](company_interviews/)** — company-wise DE interview patterns (Ola, Flipkart, Swiggy, PhonePe, Jio)
 - **[ZEPHYR.md](ZEPHYR.md)** — the fictional company whose data runs through every notebook
 - **[Roadmap](#roadmap)** — what's coming next
