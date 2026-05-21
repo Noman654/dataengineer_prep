@@ -1,4 +1,4 @@
-# 🎯 Catalyst & AQE — Self-Check Quiz
+# 🎯 Catalyst Optimizer & AQE — Self-Check Quiz
 
 **How to use this:** Read the question. Say your answer out loud like you're in an interview. Then click to expand.
 
@@ -11,7 +11,7 @@
 ## 🟢 Basics
 
 <details>
-<summary><strong>Q1.</strong> What is Catalyst?</summary>
+<summary><strong>Q1.</strong> What is Catalyst Optimizer?</summary>
 
 <br>
 
