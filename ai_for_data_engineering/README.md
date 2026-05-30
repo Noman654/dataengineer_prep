@@ -56,9 +56,12 @@ If a topic is about the *model*, it's out. If it's about the *data feeding or fl
 
 ---
 
-## Planned theory docs
+## Docs
 
-All live flat in [`theory/`](theory/) — the track is clear from the filename.
+The module is split by how LLMs show up in data engineering work:
+
+- [`using_llms/`](using_llms/) — Track A: data pipelines behind LLM applications.
+- [`building_llms/`](building_llms/) — Track B: data pipelines for training and fine-tuning LLMs.
 
 **Track A — Using LLMs:**
 - `rag_pipelines.md` — extract → chunk → embed → load; freshness; failure modes
@@ -66,14 +69,14 @@ All live flat in [`theory/`](theory/) — the track is clear from the filename.
 - `vector_stores.md` — vector stores as a data system
 
 **Track B — Building LLMs:**
-- `pretraining_data.md` — web-scale ingestion, dedup, quality filtering, decontamination, data mixing, infrastructure at scale, training formats, PII/safety, ablation methodology
-- `sft_data.md` — instruction dataset construction, formatting, quality control, diversity
+- [`pretraining_data.md`](building_llms/pretraining_data.md) — web-scale ingestion, dedup, quality filtering, decontamination, data mixing, infrastructure at scale, training formats, PII/safety, ablation methodology
+- [`sft_data.md`](building_llms/sft_data.md) — instruction dataset construction, formatting, quality control, diversity
 
 ## Status
 
 | Track | Theory docs | Quizzes |
 |---|---|---|
-| A — Using LLMs | 🔲 Planned | 🔲 Planned |
-| B — Building LLMs | 🟡 `pretraining_data.md` drafted · `sft_data.md` next | 🔲 Planned |
+| A — Using LLMs | Planned in `using_llms/` | Planned |
+| B — Building LLMs | `pretraining_data.md` drafted; `sft_data.md` in progress | Planned |
 
 *Theory docs are being written. Check back, or watch the repo.*
