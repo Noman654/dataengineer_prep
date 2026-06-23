@@ -16,9 +16,11 @@ Built in the open. Contributions welcome — see below.
 - **[data_modeling/](data_modeling/)** — dimensional modeling, SCDs, star vs snowflake, grain
 - **[ai_for_data_engineering/](ai_for_data_engineering/)** — ⭐ the DE work behind LLMs: RAG/agents (using LLMs) + pre-training & SFT data (building LLMs)
 - **[company_interviews/](company_interviews/)** — company-wise DE interview patterns (Ola, Flipkart, Swiggy, PhonePe, Jio)
+- **[dsa/](dsa/)** — 🚀 authentic DE DSA syllabus & coding case studies (Google, stream windowing, reconciliation)
 - **[ZEPHYR.md](ZEPHYR.md)** — the fictional company whose data runs through every notebook
 - **[Roadmap](#roadmap)** — what's coming next
 - **[Resources](#resources-for-data-engineers)** — thought leaders + resume examples
+- **[Community](#-community)** — 💬 WhatsApp group for serious DEs
 - **[Contributing](#contributing)**
 
 ---
@@ -44,6 +46,12 @@ The PySpark module. READMEs inside guide you through it based on your level (beg
 **Self-check quizzes** (collapsible Q&A, 🟢 basics → ⚡ senior judgment):
 - [Window functions](pyspark/quiz/window_functions.md) · [Joins](pyspark/quiz/joins.md) · [Memory](pyspark/quiz/memory_management.md) · [Catalyst/AQE](pyspark/quiz/catalyst_and_aqe.md) · [Skew](pyspark/quiz/data_skew.md) · [Spark UI](pyspark/quiz/spark_ui_debugging.md)
 
+### [dsa/](dsa/)
+
+The Data Engineering DSA module. Focuses strictly on patterns required to build scalable pipelines rather than general software engineering puzzles.
+- [Syllabus](dsa/README.md) — The authentic DE DSA Syllabus mapping 6 essential patterns (Heaps, Sliding Window, Set Reconciliation, Sessionization, Two Pointers, Out-of-Core Processing) to LeetCode questions.
+- [Google Case Study](dsa/google.md) — Deep dive into an intense 3-problem Google technical screen with production-ready Python solutions and distributed scaling strategies.
+
 ---
 
 ## Roadmap
@@ -59,7 +67,7 @@ Phase 3:
 - SQL module (window functions in SQL, gaps-and-islands, SCDs, query optimization)
 - Python for DE module (collections, generators, pandas↔Spark, testing)
 - System design scenarios for DE interviews
-- DE interview question bank
+- ✅ **DE DSA Coding Bank & Syllabus** (Google case studies, stream windowing, set reconciliation, out-of-core sharding)
 
 The repo aims to be honest about what's built and what's not. No fake timelines.
 
@@ -85,6 +93,16 @@ The repo aims to be honest about what's built and what's not. No fake timelines.
 - [Manish's DE resume](https://github.com/manisnitt/myresume/blob/main/manish_resume_github.pdf) — well-structured, shows skills/projects/experience clearly
 - [My resume](https://docs.google.com/document/d/10e79n92zj-s92Ss55H8A7fM80UhWeeD5euWAX6AUrbA/edit?usp=sharing)
 - [Jake Overleaf](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs) - Open as template then edit it as your resume on latex
+
+---
+
+## 💬 Community
+
+If you're serious about data engineering — interviewing, building, learning in public — I'm building a small WhatsApp community for it. Join here:
+
+👉 **[WhatsApp DE community](https://chat.whatsapp.com/H4dIgSsLiZg8OdWDn2dhkv?mode=gi_t)**
+
+Small and serious > big and noisy.
 
 ---
 
