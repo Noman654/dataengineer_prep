@@ -39,9 +39,9 @@ These are **wide transformations** — they span partitions, so Spark inserts a 
 - `repartition(n)` / `repartition(col)`
 - `orderBy` / `sort`
 - `window` functions when the `partitionBy` key differs from the current partitioning
-- Set operations: `union` (only if partitioning differs), `intersect`, `exceptAll`
+- Set operations: `intersect`, `exceptAll` (both need a shuffle to compare rows across partitions)
 
-**Narrow transformations** (no shuffle): `map`, `filter`, `select`, `withColumn`, `union` (when compatible). These pipeline inside a single stage — cheap.
+**Narrow transformations** (no shuffle): `map`, `filter`, `select`, `withColumn`, `union`. These pipeline inside a single stage — cheap. `union` is a straight partition concatenation (it's not SQL `UNION` — no dedup, and it never shuffles); follow it with `distinct` if you need deduplication.
 
 **Cheat to identify stage boundaries:** each shuffle = one new stage. Count the stages in the Spark UI to count your shuffles.
 

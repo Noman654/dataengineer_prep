@@ -148,7 +148,7 @@ The senior-vs-junior distinction here isn't the SQL — it's noticing the ambigu
 
 <br>
 
-- **Bucket or partition your storage by the window's partition key.** E.g., if you always `partitionBy("customer_id")`, write the table `bucketBy(200, "customer_id")` or physically partitioned by a hash of customer_id. Subsequent window queries skip the shuffle because the data is already co-located.
+- **Bucket your storage by the window's partition key.** E.g., if you always `partitionBy("customer_id")`, write the table with `bucketBy(200, "customer_id")` — a saved table, not just `df.write.partitionBy(...)`. File-source directory partitioning doesn't report output partitioning to the planner, so a plain partitioned-Parquet layout still triggers an Exchange; bucketing is what actually lets subsequent window queries skip the shuffle, because Spark's catalog knows the data is already co-located.
 - **Enable AQE** (`spark.sql.adaptive.enabled=true`) — coalesces small post-shuffle partitions automatically.
 - **Pre-aggregate before the window** when possible. If you only need monthly rollups, `groupBy(customer_id, month).agg(...)` first — that shuffle is cheaper than a shuffle over raw transactions, and the window runs on a much smaller DataFrame.
 - **Avoid re-keying unnecessarily.** If a DataFrame is already partitioned by `customer_id` from an upstream step, a window `partitionBy("customer_id")` can skip the shuffle.

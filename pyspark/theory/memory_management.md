@@ -24,11 +24,11 @@ Inside the JVM heap:
 +-------------------------------------------------------------+
 |  Reserved Memory  (hardcoded 300 MB — internal Spark objects)|
 +-------------------------------------------------------------+
-|  User Memory      (~25% of heap - 300MB)                     |
+|  User Memory      (~40% of heap - 300MB)                     |
 |                   RDDs you hold as variables, UDFs,          |
 |                   data structures in your code               |
 +-------------------------------------------------------------+
-|  Unified Memory   (~75% of heap - 300MB = spark.memory.fraction)|
+|  Unified Memory   (~60% of heap - 300MB = spark.memory.fraction)|
 |                                                               |
 |   +-------------------+-------------------+                   |
 |   |  Execution Memory |  Storage Memory   |                   |
@@ -160,7 +160,7 @@ You have N nodes, each with X cores and Y GB RAM. How do you size executors? Thi
 
 ## Garbage Collection — the silent killer
 
-Large heaps (>8 GB) with the default **ParallelGC** cause long stop-the-world pauses. Switch to **G1GC**:
+Large heaps (>8 GB) can cause long stop-the-world pauses under **ParallelGC** — the JVM default only on **Java 8**. Java 9+ (so most Spark 3.x deployments on Java 11/17) already defaults to **G1GC**; on Java 8 runtimes, switch to it explicitly:
 
 ```bash
 --conf spark.executor.extraJavaOptions="-XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps"
@@ -195,7 +195,7 @@ df.persist(StorageLevel.OFF_HEAP)           # Off-heap — requires offHeap.enab
 
 ## Interview one-liners (memorize these)
 
-- **"How does Spark manage memory inside an executor?"** → Unified Memory model: heap is split into Reserved (300 MB), User (~25%), and Unified (~75%). Unified is shared between Execution (shuffle/join buffers) and Storage (cached data), and they can borrow from each other dynamically. Execution wins when contested.
+- **"How does Spark manage memory inside an executor?"** → Unified Memory model: heap is split into Reserved (300 MB), User (~40%), and Unified (~60%, `spark.memory.fraction`). Unified is shared between Execution (shuffle/join buffers) and Storage (cached data), and they can borrow from each other dynamically. Execution wins when contested.
 - **"What's `memoryOverhead`?"** → Off-heap memory per executor. Hosts JVM native memory, Netty buffers, and — critically in PySpark — the Python worker processes. Default is `max(384 MB, 10% of executor memory)`, usually too low for PySpark.
 - **"Why do PySpark jobs OOM differently from Scala?"** → Python workers run outside the JVM in `memoryOverhead`. A PySpark job can have a healthy JVM and still get killed by YARN for off-heap overrun.
 - **"How do you size executors?"** → 5 cores per executor (HDFS/S3 sweet spot), memory = usable_node_mem / executors_per_node × 0.9, leave 1 core + 1 GB per node for OS, bump `memoryOverhead` for PySpark.

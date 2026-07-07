@@ -178,6 +178,8 @@ result = (
 
 **Why this works:** phase 1 uses `country + salt` as the key, spreading the hot country across 100 partitions. Phase 2 rolls up the small partial sums into per-country totals. The expensive shuffle happens on balanced data.
 
+**When it actually earns its keep:** for algebraic/combinable aggregates like `sum`, `count`, `min`, `max`, Spark already does map-side partial aggregation before the shuffle, which absorbs most groupBy skew on its own — don't reach for two-phase salting here without checking first. It's worth it for non-combinable aggregates (`collect_list`, exact `countDistinct`) where there's no partial pre-aggregation to fall back on.
+
 ### Level 5: Redesign the key
 
 The architectural fix. Sometimes the key is the problem.
@@ -196,7 +198,8 @@ The architectural fix. Sometimes the key is the problem.
 df.write.partitionBy("country").parquet(path)
 
 # BETTER — add a bucketed sub-partition to balance
-df.withColumn("bucket", F.hash("user_id") % 10)\
+# F.hash returns a signed int; plain `%` can go negative, so use F.pmod to keep exactly 10 buckets
+df.withColumn("bucket", F.pmod(F.hash("user_id"), F.lit(10)))\
   .write.partitionBy("country", "bucket").parquet(path)
 ```
 

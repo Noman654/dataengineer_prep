@@ -65,7 +65,7 @@ spark.read.parquet("/data").filter("year = 2024").select("tx_id")
 # Catalyst pushes year=2024 into the Parquet scan
 ```
 
-Works for: Parquet, ORC, JDBC (limited), Delta. Does NOT work for: CSV (no indexed filter), JSON, custom data sources without a pushdown implementation.
+Works for: Parquet, ORC, JDBC (limited), Delta — and CSV/JSON too since Spark 3.0 (`spark.sql.csv.filterPushdown.enabled` / `spark.sql.json.filterPushdown.enabled`, both default `true`): the reader skips non-matching rows without materializing them, and the filter shows up in `PushedFilters`. What CSV/JSON can't do is min/max **row-group skipping** — they're row-oriented with no per-column statistics, so the reader still has to open every row group. That row-group skip is Parquet/ORC/Delta-only.
 
 ### Column pruning (projection pushdown)
 Reads only the columns you reference. A Parquet file with 50 columns + your `select("a", "b")` = only 2 columns read from disk. This is why Parquet dominates in DE — columnar storage + column pruning = massive I/O savings.
@@ -177,7 +177,7 @@ spark.conf.set("spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes", "2
 ## Interview one-liners (memorize these)
 
 - **"What is Catalyst?"** → Spark's rule-based query optimizer. Takes your DataFrame/SQL, builds a logical plan, applies rewrite rules (predicate pushdown, column pruning, constant folding, join reorder, join strategy selection), and produces a physical plan. All compile-time.
-- **"What does predicate pushdown do?"** → Moves filters as close to the data source as possible. Parquet/ORC/Delta readers can skip entire row groups. CSV can't.
+- **"What does predicate pushdown do?"** → Moves filters as close to the data source as possible. Parquet/ORC/Delta readers can also skip entire row groups via min/max stats; CSV/JSON get filter pushdown too (since Spark 3.0) but can't skip row groups since they're not columnar.
 - **"What's column pruning?"** → Only reads the columns referenced in your query. Key reason Parquet beats CSV at scale.
 - **"Why does AQE exist?"** → Catalyst picks a plan before seeing data, using stats that are often missing or wrong. AQE re-optimizes at runtime once real shuffle metrics are known.
 - **"Three things AQE does?"** → (1) Coalesces small post-shuffle partitions. (2) Upgrades SortMergeJoin to BroadcastHashJoin when runtime size allows. (3) Detects and splits skewed join partitions.

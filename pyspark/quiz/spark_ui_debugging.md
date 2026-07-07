@@ -96,7 +96,7 @@ Execution memory ran out during a shuffle/sort/aggregate, so Spark wrote the in-
 - Every `Exchange` = one shuffle = one new stage boundary.
 - Count the Exchanges to count your job's shuffles.
 - `hashpartitioning` = the standard shuffle (for joins, groupBy).
-- `SinglePartition` = collapse everything to one partition (disaster sign — usually from `orderBy` without `partitionBy` or `collect` on large data).
+- `SinglePartition` = collapse everything to one partition (disaster sign — usually from a **window** `orderBy` without `partitionBy`, or `collect` on large data; a plain DataFrame `orderBy` uses `rangepartitioning` instead, see below).
 - `rangepartitioning` = used by global `orderBy`.
 
 </details>
