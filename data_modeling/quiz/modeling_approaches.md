@@ -166,16 +166,22 @@ This is the standard Data Vault deployment pattern — Data Vault was never desi
 
 ```sql
 CREATE TABLE obt_orders AS
-SELECT f.*, d_c.*, d_p.*, d_s.*, d_d.*
+SELECT
+  f.order_id, f.amount, f.quantity,
+  d_c.customer_id, d_c.name AS customer_name, d_c.tier,
+  d_p.product_id, d_p.name AS product_name, d_p.category,
+  d_s.store_id, d_s.store_name, d_s.store_type,
+  d_d.date, d_d.year, d_d.month
 FROM fact_orders f
 JOIN dim_customer d_c ON f.customer_sk = d_c.customer_sk
 JOIN dim_product d_p ON f.product_sk = d_p.product_sk
 JOIN dim_store d_s ON f.store_sk = d_s.store_sk
-JOIN dim_date d_d ON f.date_key = d_d.date_key
-WHERE d_c.is_current = true;  -- current state for simplicity
+JOIN dim_date d_d ON f.date_key = d_d.date_key;
 ```
 
 Materialize it as a table or view, refresh on a schedule.
+
+**Watch the join, not just the columns:** join on the surrogate key (`customer_sk`) and don't add `WHERE d_c.is_current = true` — the fact's surrogate key already points at the dimension version that was current *when the order happened*, so that row already has the right point-in-time attributes. Filtering to `is_current = true` on top would silently drop every historical order whose customer/store/product has since changed, which is the opposite of "current state for simplicity." (If the ask were instead "each order's *current* customer attributes," you'd join via the natural key with an `is_current = true` filter — a different, narrower request.) Also drop the `f.*, d_c.*, ...` wildcard select — most engines reject `CREATE TABLE AS SELECT` with duplicate column names across the joined tables.
 
 **Why this works:**
 - The data scientist gets their flat table, zero joins

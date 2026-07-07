@@ -35,7 +35,7 @@ All of this happens **before the job runs** — compile-time.
 
 **Parquet** (and ORC, Delta) benefit most — they store row-group-level statistics (min/max per column), so entire row groups can be skipped based on the predicate.
 
-**CSV / JSON don't support it** — those are row-oriented, unstructured; the reader has to parse every row.
+**CSV / JSON get filter pushdown too** (since Spark 3.0 — `spark.sql.csv.filterPushdown.enabled` / `spark.sql.json.filterPushdown.enabled`, both default `true`): non-matching rows are skipped without materializing. What they lack is row-group **skipping** — they're row-oriented with no per-column min/max stats, so the reader still opens every row group; only Parquet/ORC/Delta can skip whole groups.
 
 </details>
 
@@ -91,7 +91,7 @@ Predicate pushdown failed. Common causes:
 
 - **UDF in the filter** — Catalyst can't push a UDF into a Parquet reader (black box).
 - **Filter on a computed/non-source column** — e.g., `.filter(F.col("price") * 1.2 > 100)` may not push.
-- **Data source doesn't support pushdown** — CSV, JSON, some JDBC drivers.
+- **Data source's pushdown isn't available** — some JDBC drivers lack support; CSV/JSON support filter pushdown by default since Spark 3.0, so check `spark.sql.csv.filterPushdown.enabled` / `spark.sql.json.filterPushdown.enabled` weren't disabled.
 - **Filter applied after an operation that breaks pushdown** — e.g., after a shuffle.
 
 **Fix:** rewrite the filter in pure Catalyst expressions (`F.col(...)` and built-in functions only), move it before any shuffle, and verify the plan shows `PushedFilters: [...]`.

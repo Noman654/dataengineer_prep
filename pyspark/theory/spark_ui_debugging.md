@@ -102,9 +102,9 @@ df.explain(mode="cost")         # show Catalyst's size/row estimates
 |---|---|---|
 | `Scan parquet` | Read from Parquet files | Check `PushedFilters` + `ReadSchema` |
 | `Project [col1, col2, ...]` | Column selection | Confirms column pruning |
-| `Filter (...)` | Predicate applied | If it appears *after* `Scan`, filter didn't push down |
+| `Filter (...)` | Predicate applied | Can still appear even when the predicate pushed down successfully — Parquet's pushed filters aren't guaranteed exact, so Spark keeps a Filter for correctness. Don't use this as your pushdown signal; check `PushedFilters` instead |
 | `Exchange hashpartitioning(k, 200)` | **Shuffle** — data redistributed by hash(k) into 200 partitions | New stage boundary; expensive |
-| `Exchange SinglePartition` | Global collapse to one partition | Disaster sign — check for `orderBy` with no `partitionBy`, or `count().collect()` |
+| `Exchange SinglePartition` | Global collapse to one partition | Disaster sign — check for a **window** `orderBy` with no `partitionBy` (a global DataFrame `orderBy` uses `rangepartitioning`, not this), or `count().collect()` |
 | `BroadcastExchange` | Small side being broadcast | Paired with BroadcastHashJoin |
 | `BroadcastHashJoin [k]` | Broadcast join on key k | **What you want** |
 | `SortMergeJoin [k]` | Both sides shuffled and sorted, then merged | Fine for big ↔ big joins; costly if one side could have been broadcast |

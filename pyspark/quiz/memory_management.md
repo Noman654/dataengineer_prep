@@ -16,8 +16,8 @@
 <br>
 
 1. **Reserved Memory** — 300 MB hardcoded, for internal Spark objects.
-2. **User Memory** — ~25% of (heap − 300 MB). For your own data structures, UDFs, variables.
-3. **Unified Memory** — ~75% of (heap − 300 MB). Where Spark does its real work; shared between Execution and Storage.
+2. **User Memory** — ~40% of (heap − 300 MB). For your own data structures, UDFs, variables.
+3. **Unified Memory** — ~60% of (heap − 300 MB), per `spark.memory.fraction`. Where Spark does its real work; shared between Execution and Storage.
 
 </details>
 
