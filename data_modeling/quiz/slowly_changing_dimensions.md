@@ -181,15 +181,29 @@ Key points:
 
 <br>
 
-In traditional SQL, Type 2 is a two-step process (UPDATE to expire + INSERT new row). In Delta/Iceberg, `MERGE` can do both atomically:
+In traditional SQL, Type 2 is a two-step process (UPDATE to expire + INSERT new row). `MERGE` can collapse it into one atomic statement — but there is a trap that makes this a great interview question.
+
+**The trap:** a naive MERGE with `ON target.store_id = source.store_id AND target.is_current = true` cannot implement Type 2 on its own. For a changed entity, the source row *matches* the current target row, so only the `WHEN MATCHED` expire fires — `WHEN NOT MATCHED` can never fire for that same source row, and the new version is silently never inserted. (Brand-new entities are the one case that works: they have no current row, so they fall through to the insert.)
+
+**The standard fix** is to make changed entities appear *twice* in the source — once under their real key (matches, expires the current row) and once under a `NULL` merge key (matches nothing, inserts the new version):
 
 ```sql
 MERGE INTO dim_store AS target
-USING staging AS source
-ON target.store_id = source.store_id AND target.is_current = true
+USING (
+  -- every staging row once, under its real key
+  SELECT s.store_id AS merge_key, s.* FROM staging s
+  UNION ALL
+  -- changed entities a second time, under a NULL key
+  SELECT NULL AS merge_key, s.*
+  FROM staging s
+  JOIN dim_store t
+    ON s.store_id = t.store_id AND t.is_current = true
+  WHERE s.store_type != t.store_type
+) AS source
+ON target.store_id = source.merge_key AND target.is_current = true
 
 WHEN MATCHED AND target.store_type != source.store_type THEN
-  UPDATE SET 
+  UPDATE SET
     target.expiry_date = CURRENT_DATE - 1,
     target.is_current = false
 
@@ -199,11 +213,10 @@ WHEN NOT MATCHED THEN
 ```
 
 **Why this matters:**
-- **Atomic** — expire and insert happen in one transaction. No window where the old row is expired but the new row doesn't exist yet.
-- **Idempotent** — re-running the MERGE with the same staging data doesn't create duplicate versions (the `WHEN MATCHED AND ... !=` prevents no-op updates).
-- **Interview signal:** mentioning MERGE for SCDs shows you've implemented this in a modern lakehouse, not just studied it.
-
-**Caveat:** the MERGE above handles new versions but NOT brand-new entities. Add a second `WHEN NOT MATCHED BY SOURCE` clause or a separate INSERT for new entities that don't exist in the target yet.
+- **Atomic** — with the union trick, expire and insert genuinely happen in one transaction: no window where the old row is expired but the new version doesn't exist. (The naive version has the opposite problem — for changed entities that window never closes.)
+- **Idempotent** — re-running with the same staging data is a no-op: the `!=` guard skips the expire, and the union's `WHERE` produces no NULL-key rows, so nothing gets inserted twice.
+- **The readable alternative** — MERGE for the expire plus a separate INSERT in the same transaction, which is the pattern in the [theory doc](../theory/slowly_changing_dimensions.md). Both are correct; the union trick is one statement, the two-step version is easier to review.
+- **Interview signal:** explaining *why* the naive single MERGE cannot work (one source row cannot hit both branches) shows you've implemented this, not just read about it.
 
 </details>
 

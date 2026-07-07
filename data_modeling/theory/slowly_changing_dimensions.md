@@ -131,14 +131,14 @@ fact_transactions: tx_id, customer_sk, demo_sk, store_sk, ...
 **Rule:** combine Type 2 (new row) + Type 1 (overwrite current) + Type 3 (keep previous). Called Type 6 because 1+2+3 = 6.
 
 ```
-sk  | store_id | store_type | previous_type | effective_date | expiry_date | is_current
-101 | 42       | cafe       | kiosk         | 2019-01-01     | 2023-06-30  | false
-102 | 42       | cafe       | kiosk         | 2023-07-01     | 9999-12-31  | true
+sk  | store_id | store_type | current_store_type | previous_type | effective_date | expiry_date | is_current
+101 | 42       | kiosk      | cafe               | -             | 2019-01-01     | 2023-06-30  | false
+102 | 42       | cafe       | cafe               | kiosk         | 2023-07-01     | 9999-12-31  | true
 ```
 
-**Notice:** both rows show `store_type = cafe` (Type 1 overwrite on all rows), but `previous_type = kiosk` (Type 3 column), and there are two rows (Type 2 versioning).
+**Notice:** `store_type` keeps its point-in-time value on each row (Type 2 versioning: a 2019 fact joined to sk 101 still reports `kiosk`), `current_store_type` is overwritten on ALL rows whenever the type changes (Type 1 column: current-state access from any row), and `previous_type` records the prior value (Type 3 column). The Type 1 overwrite must hit its own dedicated column — overwriting `store_type` itself would destroy exactly the history the Type 2 rows exist to preserve.
 
-**Zephyr example:** store 42 converts from kiosk to cafe. You want: (a) full version history (Type 2), (b) easy "current type" filtering without `is_current` (Type 1 updates old rows), (c) quick comparison of previous vs current (Type 3 column).
+**Zephyr example:** store 42 converts from kiosk to cafe. You want: (a) full version history (Type 2: `store_type` per row), (b) easy "current type" filtering without `is_current` (Type 1: `current_store_type` on every row), (c) quick comparison of previous vs current (Type 3: `previous_type`).
 
 **When to use:** when you need all three: historical versions, easy current-state access, and before/after comparison. Most common in enterprise warehouses.
 
